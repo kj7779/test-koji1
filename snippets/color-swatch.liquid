@@ -1,0 +1,20 @@
+<div class="color-swatch">
+   {% for color_option in card_product.tags %}
+       <span class="{{ color_option }}">{{ color_option }}</span>
+  <style>
+    .color-swatch {
+      margin-top:-40px;
+      padding:0;
+    }
+     .{{color_option}} {
+       display: inline-block;
+       margin-right:1px;
+       padding: 2px 5px;
+       color:gray;
+  background-color: {{color_option}};
+  border-radius: 45%;
+       border:1px solid gray;
+}
+    </style>
+   {% endfor %}
+</div>
