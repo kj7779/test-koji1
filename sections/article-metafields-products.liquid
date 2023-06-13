@@ -11,15 +11,45 @@
     {%- for product in metafields-products.value  -%}
        
           <li class="metafields-product">
-            <a href="{{ product.url }}"></a>
-            <div class="metafields-product_img">
-              <img src="{{ product.featured_image | img_url: 'large'  }} "  alt="{{ product.featured_image }}">
-            </div >
-                <h3>{{ product.title }}</h3
-                </a>
+            <a href="{{store.url}}{{ product.url }}">
+              <figure class="metafields-product_img">
+                <img src="{{ product.featured_image | img_url}} "  alt="{{ product.featured_image }}">
+              </figure>
+                <span>{{ product.title }}</span>
+            </a>
           </li>
           
     {%- endfor -%}
+
+    <style>
+      
+      .list-unstyled {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background: green;
+      }
+      .metafields-product {
+        background: pink;
+        width: 48%;
+        margin: 10px auto;
+        padding:0;
+      }
+      .metafields-product a {
+      }
+
+      .metafields-product_img {
+        padding:0;
+        margin: 0;
+      }
+      .metafields-product_img img {
+        width: 100%;
+      }
+      span {
+        background: red;
+      }
+
+    </style>
     </ul>
   </section>
 {%- endif -%}
@@ -53,12 +83,6 @@
         ],
         "default": "h2",
         "label": "t:sections.all.heading_size.label"
-      },
-      {
-        "type": "text",
-        "id": "btn_text",
-        "label": "ボタンテキスト",
-        "default": "詳細を見る"
       }
     ],
     "presets" : [
