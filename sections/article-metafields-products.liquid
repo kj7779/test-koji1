@@ -7,23 +7,20 @@
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
+    <ul class="list-unstyled">
     {%- for product in metafields-products.value  -%}
-        <ul class="list-unstyled">
+       
           <li class="metafields-product">
+            <a href="{{ product.url }}"></a>
             <div class="metafields-product_img">
               <img src="{{ product.featured_image | img_url: 'large'  }} "  alt="{{ product.featured_image }}">
             </div >
-            <div  class="metafields-product_txt">
-              <div>
-                <h3>{{ product.title }}</h3>
-              </div>
-              <div class="center">
-                <a class="button btn_link text-white" href="{{ product.url }}">{{ section.settings.btn_text }}</a>
-              </div>
-            </div >
+                <h3>{{ product.title }}</h3
+                </a>
           </li>
-        </ul>
+          
     {%- endfor -%}
+    </ul>
   </section>
 {%- endif -%}
 
