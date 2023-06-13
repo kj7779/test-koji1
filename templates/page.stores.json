@@ -1,8 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "wishlist",
+      "type": "stores-page",
       "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },

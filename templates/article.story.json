@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article-story",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "settings": {
+      }
+    },
+    "99e96b4e-5b10-4118-9041-c1820b41551f": {
+      "type": "article-metafields-products",
+      "settings": {
+        "heading": "こちらのページでご紹介した商品",
+        "heading_size": "h2",
+        "btn_text": "詳細を見る"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "99e96b4e-5b10-4118-9041-c1820b41551f"
+  ]
+}

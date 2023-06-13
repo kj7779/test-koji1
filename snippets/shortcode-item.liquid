@@ -1,0 +1,86 @@
+{%- include 'shortcode-render' render:'item-num' default:'1' -%}
+{%- assign metafields-products = article.metafields.related.product -%}
+
+{%-  if metafields-products != blank -%}
+  <section class="page-width element-margin-top">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+  {% assign test = metafields-products.value | join: ', ' %} 
+  {% assign fruits =  test| split: ", " %}
+  {% assign fruits_num = fruits | size  %}   
+ 
+  <p>本店</p>
+<div class="shop_info">
+  <p>店舗名：{{ shop.metaobjects.shopList.tokyo_store.name }}</p>
+  <p>店舗住所：{{ shop.metaobjects.shopList.tokyo_store.address }}</p>
+</div>
+<br>
+<p>店舗一覧</p>
+<div class="shop_list">
+  {%- for shopInfo in shop.metaobjects.shopList.values -%}
+    <div class="shop_info" style="{{ shopInfo.address }}">
+      <p>店舗名：{{ shopInfo.name }}</p>
+      <p>店舗住所：{{ shopInfo.address }}</p>
+    </div>
+   {% assign name1 = shopInfo.name | plus: 0 %}
+    {% if fruits_num == name1 %}
+        {% assign css_here =  shopInfo.address %}
+      {% endif %}
+  {%- endfor -%}
+</div>
+  {{ css_here }}
+
+        
+        <ul class="list-unstyled">
+    {%- for product in metafields-products.value  -%}
+          <li class="metafields-product" style="{{ css_here }}">
+            <div class="metafields-product_img">
+              <img src="{{ product.featured_image | img_url: 'large'  }} "  alt="{{ product.featured_image }}">
+            </div >
+            <div  class="metafields-product_txt">
+              <div>
+                <h3>{{ product.title }}</h3>
+                <p class="right">{{ product.price_min | money_without_currency }}円（税込）~</p>
+                <p>{{ product.metafields.custom.description | truncate: 150 }}</p>
+              </div>
+              <div class="center">
+                <a class="button btn_link text-white" href="{{ product.url }}">{{ section.settings.btn_text }}</a>
+              </div>
+            </div >
+          </li>
+        {%- endfor -%}
+        </ul>
+    
+  </section>
+{%- endif -%}
+
+    
+<style>
+  .blog-products {
+    widht: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    background: green;
+  }
+  .list-unstyled{
+    widht: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    background: green;
+  }
+  .metafields-product {
+    width: 100%;
+    border: 1px solid #aaa;
+    margin: 0.2em;
+    padding: 0.5em;
+    background: pink;
+}
+  
+  .blog-img {
+    width: 100%;
+    height: auto;
+  }
+</style>

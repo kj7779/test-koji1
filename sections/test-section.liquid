@@ -1,0 +1,51 @@
+<h2>{{ section.settings.text-input | escape }}</h2>
+{% case section.settings.range %}
+	{% when 2 %}
+		<p>2です</p>
+	{% when 3 %}
+		<p>3です</p>
+	{% when 4 %}
+		<p>4です</p>
+	{% when 5 %}
+		<p>5です</p>
+{% endcase %}
+
+{% if section.settings.check %}
+	<p>チェックあり</p>
+{% else %}
+	<p>チェックなし</p>
+{% endif %}
+
+{% schema %}
+{
+  "name":"セクション名",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text-input",
+      "label": "テキスト入力",
+      "default": "デフォルトテキスト"
+    },
+    {
+      "type": "range",
+      "id": "range",
+      "label": "レンジ入力",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "check",
+      "label": "チェックボックス",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "セクション名" 
+    }
+  ]
+}
+{% endschema %}
