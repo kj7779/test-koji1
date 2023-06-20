@@ -1,0 +1,14 @@
+{%- capture product_handle -%}{%- include 'shortcode-render' render:'handle' default:'' -%}{%- endcapture -%}
+
+{% assign item = product_handle %}
+
+{% assign product = all_products[item] %}
+
+<a href="{{ product.url }}">
+  <img src="{{ product.featured_image | img_url: 'large'  }} "  alt="{{ product.featured_image }}">
+<p>{{product.title}}</p>
+</a>
+{{handle}}
+{{handle}}
+{{product_handle}}
+    

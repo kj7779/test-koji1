@@ -1,0 +1,22 @@
+{%- capture product_handle -%}{%- include 'shortcode-render' render:'handle' default:'' -%}{%- endcapture -%}
+<p>test</p>
+{% assign sweets = 'cake, icecream, crepe, applepie' | split: ', ' %}
+
+{% for i in (1..3) -%}
+  {% for v in (1..3) -%}
+    <div class="shop_list">
+      {%- for shopInfo in shop.metaobjects.color-icon.values -%}
+        {% if shopInfo.color == shopInfo.color %}
+        <div class="shop_info" style="{{ shopInfo.address }}">
+          <p>店舗名：{{ shopInfo.color }}</p>
+          <p>店舗住所：{{ shopInfo.color-cord }}</p>
+        </div>
+       {% assign name1 = shopInfo.name | plus: 0 %}
+        {% if fruits_num == name1 %}
+            {% assign css_here =  shopInfo.address %}
+          {% endif %}
+        {% endif %}
+      {%- endfor -%}
+    </div>
+ {%- endfor %}
+{%- endfor %}
