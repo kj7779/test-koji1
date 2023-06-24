@@ -1,26 +1,44 @@
-<p>{{ weather }}</p>
+{% if shop.metaobjects.timer.timer-gt7ned9k.end != blank %}
+<div id="offer-{{ section.id }}" class="timesale__contents" style="text-align-last: center; padding: 2px;">
+<span id="message-today">キャンペーン終了まで:　</span> 
+<span id="timer"></span>
+{%endif%}
+</div>
+
 <script>
-    //Liquid変数weatherの値をjsWeatherに格納
-    let jsWeather = {{ weather }}
-    //jsWeatherの値をconsoleに表示
-    console.log("It's" + jsWeather + "today!") //結果　： It's sunny today!
+{% comment %} var countDownDate = new Date("2020"); {% endcomment %}
+var countDownDate = new Date("{{shop.metaobjects.timer.timer-gt7ned9k.end}}");
+console.log(countDownDate);
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("timer").innerHTML = days + "日 " + hours + ":" + minutes + ":" + seconds;
+
+    if (distance < 0) {
+      clearInterval(x);
+        document.getElementById("offer-{{ section.id }}").style.display = "none";
+      } else {
+        document.getElementById("offer-{{ section.id }}").style.display = "block";
+      }
+console.log(days);
+},1000);
+
 </script>
 
 {% schema %}
-    {
-        "name":"test-javascript",
-        "settings": [
-            {
-                "type": "text",
-        "id": "text-input",
-        "label":"自由に入力",
-        "default":"自由に入力してください",
-            }
-        ],
-        "presets": [
-            {
-            "name": "test-javascript"
-            }
-        ]
-    }
-{% endschema %}
+{
+    "name": "test-timer",
+    "settings": [
+    ],
+    "presets": [
+      {
+      "name": "test-timer"
+      }
+    ]
+  }
+{% endschema%}
