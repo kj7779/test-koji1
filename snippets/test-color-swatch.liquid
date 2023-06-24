@@ -1,0 +1,60 @@
+<div class="color-swatch">
+    {%- for shopInfo in shop.metaobjects['color-icon'].values -%}
+      {% assign colorJp = colorJp | append: ',' | append: shopInfo.color %}
+      {% assign colorCode = colorCode | append: ',' | append: shopInfo['color-cord'] %}
+      {% assign colorName = colorName | append: ',' | append: shopInfo.name %}
+    {% endfor %}
+    {% assign colorJps = colorJp | split: ',' %}
+    {% assign colorCodes = colorCode | split: ',' %}
+    {% assign colorNames = colorName | split: ',' %}
+
+    {{ test-tags }}
+    {%- for tag in product-tags -%}
+      {% assign tags = tags | append: ',' | append: tag %}
+    {% endfor %}
+    {% assign arrayTags = tags | split: ',' %}
+
+    {%- assign start = 1 -%}
+    {%- assign limitTags = arrayTags.size -%}
+    {%- assign limitColors = colorNames.size | minus: 1 -%}
+
+    {% for i in (start..limitTags) -%}
+      {% for g in (start..limitColors) -%}
+        {% if arrayTags[i] == colorJps[g] %}
+          <span class="color-swatch-style color-swatch-color-{{ colorNames[g] }}"></span>
+          {% comment %}
+            <span>{{arrayTags[i]}}</span>
+            <span>{{colorNames[g]}}</span>
+            <span>{{colorCodes[g]}}</span>
+          {% endcomment %}
+          <style>
+            .color-swatch-color-{{ colorNames[g] }} {
+            background-color:{{colorCodes[g]}};
+            display: flex;
+            }
+          </style>
+        {% else %}
+          <span class="color-swatch-color-hidden"></span>
+          <style>
+            .color-swatch-color-hidden {
+              visibility: hidden;
+              background: red;
+            }
+          </style>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <style>
+    .color-swatch {
+      display: flex;
+    }
+    .color-swatch-style {
+      display: inline-block;
+      margin: 0 2px 0 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid gray;
+      border-radius: 50%;
+    }
+  </style>

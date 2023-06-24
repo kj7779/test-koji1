@@ -183,7 +183,7 @@
               </div>
               <p class="rating-text caption">
                 <span aria-hidden="true">
-                  {{- card_product.metafields.reviews.rating.value }} /
+                  {{- card_product.metafields.reviews.rating.value }}
                   {{ card_product.metafields.reviews.rating.value.scale_max -}}
                 </span>
               </p>
@@ -198,35 +198,11 @@
 
             {% render 'price', product: card_product, price_class: '' %}
           </div>
-  
- {% comment %}カラー表示を追加 {% endcomment %}
-<div class=color-swatch>
- 
-  {%- for shopInfo in shop.metaobjects.color-icon.values -%}
-    {% assign words = words | append: "," | append: shopInfo.color %}
-   {% endfor %}
-   {% assign array = words | split: "," %}
 
-   {%- for shopInfo in shop.metaobjects.color-icon.values -%}
-    {% assign words = words | append: "," | append: shopInfo.color %}
-   {% endfor %}
-   {% assign array2 = words | split: "," %}
-
-   {%- for shopInfo in shop.metaobjects.color-icon.values -%}
-   {% for i in (1..20) -%}       
-    {% if array2[i] == array[i] %}
-    <p> {{ shopInfo.color }}</p>
-   {%endif%}
-
-   {% endfor %}
-   {% endfor %}
-
-  
-              
-    
-      </div>
-   {% comment %}カラー表示を追加　終了 {% endcomment %}
-  
+          {% comment %}カラー表示を追加 {% endcomment %}
+          {% comment %} product-tags:card_product.tagsで値を渡す {% endcomment %}
+        {% render "test-color-swatch", product-tags:card_product.tags %}
+          {% comment %}カラー表示を追加　終了 {% endcomment %}
         </div>
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">

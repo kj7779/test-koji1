@@ -1,0 +1,26 @@
+<p>{{ weather }}</p>
+<script>
+    //Liquid変数weatherの値をjsWeatherに格納
+    let jsWeather = {{ weather }}
+    //jsWeatherの値をconsoleに表示
+    console.log("It's" + jsWeather + "today!") //結果　： It's sunny today!
+</script>
+
+{% schema %}
+    {
+        "name":"test-javascript",
+        "settings": [
+            {
+                "type": "text",
+        "id": "text-input",
+        "label":"自由に入力",
+        "default":"自由に入力してください",
+            }
+        ],
+        "presets": [
+            {
+            "name": "test-javascript"
+            }
+        ]
+    }
+{% endschema %}
