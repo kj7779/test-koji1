@@ -126,6 +126,7 @@
         "label": "t:settings_schema.typography.settings.type_header_font.label",
         "info": "t:settings_schema.typography.settings.type_header_font.info"
       },
+    
       {
         "type": "range",
         "id": "heading_scale",
@@ -146,6 +147,12 @@
         "default": "assistant_n4",
         "label": "t:settings_schema.typography.settings.type_body_font.label",
         "info": "t:settings_schema.typography.settings.type_body_font.info"
+      },
+      {
+        "type": "textarea",
+        "id": "type_body_jp_font",
+        "label": "日本語フォント設定",
+        "info": "この欄に入力されたfont-familyをフォント設定に追加します"
       },
       {
         "type": "range",

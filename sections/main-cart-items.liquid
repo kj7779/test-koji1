@@ -27,6 +27,16 @@
   <div class="title-wrapper-with-link">
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+    <p class="announcement-bar__message h5">
+      {%- assign free_shipping_fee = 1000000 -%}
+      {% if cart.total_price == 0 %}
+      <span>注文合計10,000円で送料無料</span>
+      {% elsif cart.total_price < free_shipping_fee %}
+      <span>送料無料まであと{{ free_shipping_fee | minus: cart.total_price | money_without_currency }}円</span>
+      {% else %}
+      <span>只今、カート内の商品を送料無料で注文できます！</span>
+      {% endif %}
+    </p>
   </div>
 
   <div class="cart__warnings">
