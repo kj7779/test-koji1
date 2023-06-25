@@ -46,11 +46,17 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "f8a88fe1-412f-4199-a52d-038d8a296795": {
+      "type": "test-javascript",
+      "settings": {
+      }
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "a854f208-0c63-4fc5-9eac-a8d4854552f9"
+    "a854f208-0c63-4fc5-9eac-a8d4854552f9",
+    "f8a88fe1-412f-4199-a52d-038d8a296795"
   ]
 }
