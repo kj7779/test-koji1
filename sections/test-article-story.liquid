@@ -60,7 +60,7 @@
           itemprop="articleBody"
           {{ block.shopify_attributes }}
         >
-          {{ article.content }}
+         {% include 'shortcode' load:article.content %}
         </div>
 
       {%- when 'share' -%}
