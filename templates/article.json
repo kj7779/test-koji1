@@ -16,6 +16,11 @@
             "blog_show_author": false
           }
         },
+        "98d78478-4424-4e1f-8d20-9d517af8ae90": {
+          "type": "shopify:\/\/apps\/table-of-contents\/blocks\/theme-extension\/d06f5754-affb-4dc7-a2a9-18d74d225f70",
+          "settings": {
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -31,6 +36,7 @@
       "block_order": [
         "featured_image",
         "title",
+        "98d78478-4424-4e1f-8d20-9d517af8ae90",
         "share",
         "content"
       ],
