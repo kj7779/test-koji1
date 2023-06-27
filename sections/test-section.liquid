@@ -1,3 +1,15 @@
+All products:
+{% for product in all_products %}
+ {{ product.title }}
+{% endfor %}
+
+{% assign available_products = products | where: "available" %}
+
+Available products:
+{% for product in available_products %}
+ {{ product.title }}
+{% endfor %}
+
 <h2>{{ section.settings.text-input | escape }}</h2>
 {% case section.settings.range %}
 	{% when 2 %}

@@ -17,6 +17,11 @@
             placeholder="{{ 'sections.cart.note' | t }}"
           >{{ cart.note }}</textarea>
         </cart-note>
+        <p class="cart-attribute__field">
+          <input type="hidden" name="attributes[無料ラッピング希望]" value="No">
+          <input type="checkbox" name="attributes[無料ラッピング希望]" value="Yes"{% if cart.attributes["無料ラッピング希望"] == "Yes" %} checked{% endif %}>
+          <label>無料ラッピング希望</label>
+        </p>
       {%- endif -%}
 
       <div class="cart__blocks">

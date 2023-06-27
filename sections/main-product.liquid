@@ -308,6 +308,15 @@
               %}
 
             {%- when 'variant_picker' -%}
+              <p class="line-item-property__field">
+                <input type="hidden" name="properties[最新情報を希望しますか？]" value="No">
+                <input id="" type="checkbox" name="properties[最新情報を希望しますか？]" value="Yes" form="product-form-{{ section.id }}">
+                <label for="">最新情報を希望しますか？</label>
+              </p>
+              <p class="line-item-property__field">
+                <label for="your-name">Your name</label>
+                <input id="your-name" type="text" name="properties[Your name]" form="product-form-{{ section.id }}">
+              </p>
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
