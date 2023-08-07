@@ -1,5 +1,6 @@
 {%- capture product_handle -%}{%- include 'shortcode-render' render:'handle' default:'' -%}{%- endcapture -%}
 <p>test</p>
+
 {% assign sweets = 'cake, icecream, crepe, applepie' | split: ', ' %}
 
 {% for i in (1..3) -%}

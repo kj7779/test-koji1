@@ -12,7 +12,7 @@
           <ul class="d-demo__list d-demo__list--left">
     {%- for product in metafields-products.value  -%}
        
-          <li class="metafields-product">
+      <li class="d-demo__item">
             <a class="color-background-1" href="{{store.url}}{{ product.url }}">
               <figure class="metafields-product_img">
                 <img src="{{ product.featured_image | img_url}} "  alt="{{ product.featured_image }}">
@@ -22,8 +22,39 @@
           </li>
           
     {%- endfor -%}
-
+     </ul>
+  </div>
+</div>
     <style>
+      @keyframes infinity-scroll-left {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+.d-demo__wrap {
+  display: flex;
+  overflow: hidden;
+}
+
+.d-demo__list {
+  display: flex;
+  list-style: none;
+}
+
+.d-demo__list--left{
+animation :infinity-scroll-left 95s infinite linear 10s both;
+}
+
+.d-demo__item {
+  width: calc(100vw / 6);
+}
+.d-demo__item > img{
+   width: 100%;
+}
       
       .list-unstyled {
         width: 100%;
@@ -64,14 +95,12 @@ padding:0;
 
     </style>
     </ul>
-  </div>
-</div>
   </section>
 {%- endif -%}
 
 {% schema %}
   {
-    "name": "関連商品（メタフィールド）",
+    "name": "関連商品（メタフィールド）2",
     "settings": [
       {
         "type": "text",
@@ -102,7 +131,7 @@ padding:0;
     ],
     "presets" : [
       {
-        "name" : "関連商品（メタフィールド設定）"
+        "name" : "関連商品（メタフィールド設定）2"
       }
     ],
     "templates" : [

@@ -195,14 +195,15 @@
                 </span>
               </p>
             {%- endif -%}
-
-            {% render 'price', product: card_product, price_class: '' %}
-          </div>
-
-          {% comment %}カラー表示を追加 {% endcomment %}
+                {% comment %}カラー表示を追加 {% endcomment %}
           {% comment %} product-tags:card_product.tagsで値を渡す {% endcomment %}
         {% render "test-color-swatch", product-tags:card_product.tags %}
-          {% comment %}カラー表示を追加　終了 {% endcomment %}
+        {% comment %}カラー表示を追加　終了 {% endcomment %}
+            {% render 'price', product: card_product, price_class: '' %}
+          
+          </div>
+
+     
         </div>
         {%- if show_quick_add -%}
           <div class="quick-add no-js-hidden">

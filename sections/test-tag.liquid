@@ -1,0 +1,50 @@
+{% comment %} {{collections['pink'].title}}
+{{collections['pink'].tags}}
+<hr> {% endcomment %}
+
+{% for collection in collections %}
+{% assign rules = collection | json | split: ',"rules":' | last | split: ']' | first | append: ']' | split: ",{" %}
+{% assign rule_tags = "" %}
+  {% for rule in rules%}
+    {% if rule contains '"column":"tag"'%}
+      {% assign tag = rule | split: '"condition":"' | last | split: '"' | first %}
+      {%assign rule_tags = rule_tags | append: tag | append: ',' %}
+    {% endif %}
+  {%endfor%}
+collection title: {{collection.title}}
+<br>
+collection rule:{{ rule_tags}}
+<hr>
+{% endfor%}
+
+
+
+
+ここまで
+<hr>
+{% for collection in collections %}
+    {% assign collection = collections['pink'] %}
+    {% assign key = 'ブルー' %}
+    {{collection}} 
+    {% assign collection_array = collection | json | remove: '"' | remove: '{' | remove: '}'  | remove: '[' | remove: ']' | split: ','%}
+    {% comment %} {{collection_array}}<br>  {% endcomment %}
+    {% assign array_test = collection_array | split: ':' %}
+    {{ array_test}}
+    <hr>
+    
+
+{% endfor%}
+
+  {% schema %}
+  {
+    "name": "test-tag",
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "test-tag"
+      }
+    ]
+  }
+  {% endschema %}
+  

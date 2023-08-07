@@ -1,0 +1,30 @@
+test<br>
+{% comment %} {% assign all_categories = site.pages | map: "category" %} {% endcomment %}
+
+
+
+{% for collection in collections %}
+    {% assign rules = collection | json | split: ',"rules":' | last | split: ']' | first | append: ']' | split: ",{" %}
+    1:{{ rules}}<br>
+
+{%endfor%}
+
+  <hr>
+  {% for collection in collections %}
+    {% assign rules2 = collection | json %}
+   2:{{rules2}}
+
+{%endfor%}
+
+  {% schema %}
+  {
+    "name": "test-code",
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "test-code"
+      }
+    ]
+  }
+  {% endschema %}
